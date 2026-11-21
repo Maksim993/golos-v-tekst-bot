@@ -1,0 +1,10 @@
+services:
+  bot:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      RUN_MODE: polling
+      WHISPER_MODEL: /app/model
+      MODEL_OFFLINE: "1"
+    stop_grace_period: 10m

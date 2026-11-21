@@ -1,2 +1,18 @@
-# golos-v-tekst-bot
-Telegram voice and video-note transcription with local Whisper, without paid speech APIs.
+# Голосовые и видео-кружки в текст
+
+Telegram-бот с бесплатным локальным распознаванием Whisper через faster-whisper.
+
+Бот: https://t.me/golos_v_tekst_211126_bot
+
+Полная инструкция по использованию, размещению на Render Free, ограничениям бесплатного хостинга и локальному запуску: [ИНСТРУКЦИЯ.md](ИНСТРУКЦИЯ.md).
+
+Доступ открыт всем в личных чатах. Голосовые и видео-кружки возвращаются текстом, мат не фильтруется. Платный API распознавания не используется. Для работы при выключенном домашнем компьютере требуется завершённое размещение на внешнем сервере.
+
+На Render Free используется webhook, на компьютере/VPS — polling. При первом запуске модель скачивается; в Docker она заранее включается в образ. Файл `.env` с токеном не публикуется.
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+# Заполни TELEGRAM_BOT_TOKEN в .env, остальные настройки смотри в .env.example
+.\.venv\Scripts\python.exe bot.py
+```

@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: golos-v-tekst
+    runtime: docker
+    plan: free
+    autoDeployTrigger: off
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: WEBHOOK_SECRET
+        generateValue: true
+      - key: RUN_MODE
+        value: webhook
+      - key: WHISPER_LANGUAGE
+        value: ru
+      - key: WHISPER_CPU_THREADS
+        value: "1"
+      - key: MAX_DURATION_SECONDS
+        value: "300"
+      - key: MAX_PENDING_JOBS
+        value: "10"
+      - key: MAX_PENDING_PER_USER
+        value: "3"
+      - key: ALLOWED_USER_IDS
+        value: ""
